@@ -1,5 +1,5 @@
 #include "lalapadgen2.dtsi"
-
+#include <input/processors.dtsi>
 &kscan0 {
     col-gpios
         = <&gpio0 19 GPIO_ACTIVE_HIGH>
@@ -10,10 +10,13 @@
         , <&xiao_d 0 GPIO_ACTIVE_HIGH>
         ;
 };
-
 &trackpad_split_L {
     status = "okay";
     device = <&iqs9151>;
+    input-processors =
+        <&zip_xy_scaler 1 2>,
+        <&zip_scroll_scaler 1 15>,
+        <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)>;
 };
 &trackpad_split_R {
     status = "disabled";

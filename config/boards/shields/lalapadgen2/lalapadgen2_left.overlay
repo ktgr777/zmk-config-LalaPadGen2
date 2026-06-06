@@ -15,7 +15,7 @@
     device = <&iqs9151>;
     input-processors =
         <&zip_xy_scaler 1 2>,
-        <&zip_scroll_scaler 1 15>,
+        <&zip_scroll_scaler 1 10>,
         <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)>;
 };
 &trackpad_split_R {
